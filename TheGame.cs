@@ -16,26 +16,24 @@ public class TheGame : Game
 
     public TheGame()
     {
-        graphics = new GraphicsDeviceManager(this)
-        {
-            PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width,
-            PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height
-        };
-        graphics.ApplyChanges();
-
-        canvas = new Canvas(GraphicsDevice, gameWidth, gameHeight);
+        graphics = new GraphicsDeviceManager(this);
 
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
 
-        Window.AllowUserResizing = false;
-        Window.IsBorderless = true;
+        Window.AllowUserResizing = true;
+        Window.IsBorderless = false;
         Window.Title = "Tiny Adventure";
         Window.ClientSizeChanged += UpdateCanvasRenderSize;
     }
 
     protected override void Initialize()
     {
+        graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+        graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+        graphics.ApplyChanges();
+        
+        canvas = new Canvas(GraphicsDevice, gameWidth, gameHeight);
 
         base.Initialize();
     }
