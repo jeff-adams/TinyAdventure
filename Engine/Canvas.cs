@@ -29,8 +29,8 @@ public class Canvas
         this.graphics = graphics;
 
         renderTarget = new RenderTarget2D(this.graphics, width, height);
+        renderRect = UpdateRenderRectangle();
     }
-
 
     internal void Activate()
     {          

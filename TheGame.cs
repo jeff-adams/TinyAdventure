@@ -12,7 +12,7 @@ public class TheGame : Game
     private Canvas canvas;
 
     private const int gameWidth = 500;
-    private const int gameHeight = 500;
+    private const int gameHeight = 300;
 
     public TheGame()
     {
@@ -29,8 +29,8 @@ public class TheGame : Game
 
     protected override void Initialize()
     {
-        graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
-        graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+        graphics.PreferredBackBufferWidth = gameWidth;
+        graphics.PreferredBackBufferHeight = gameHeight;
         graphics.ApplyChanges();
         
         canvas = new Canvas(GraphicsDevice, gameWidth, gameHeight);
@@ -66,8 +66,6 @@ public class TheGame : Game
         base.Draw(gameTime);
     }
 
-    private void UpdateCanvasRenderSize(object sender, EventArgs e)
-    {
+    private void UpdateCanvasRenderSize(object sender, EventArgs e) =>
         canvas.UpdateRenderRectangle();
-    }
 }
