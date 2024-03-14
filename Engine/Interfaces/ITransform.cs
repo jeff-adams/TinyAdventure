@@ -5,7 +5,7 @@ namespace TinyAdventure;
 
 public interface ITransform
 {
-    Vector2 Origin { get; set; }
+    Vector2 Origin { get; }
     Vector2 Position { get; }
     float Rotation { get; }
     float Scale { get; }

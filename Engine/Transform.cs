@@ -6,7 +6,7 @@ namespace TinyAdventure;
 public sealed class Transform : ITransform
 {
     public ITransform Parent { get; private set; }
-    public Vector2 Origin { get; set; }
+    public Vector2 Origin => origin;
     
     // Gives the world coordinates
     public Vector2 Position 
