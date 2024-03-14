@@ -1213,11 +1213,6 @@
 /processorParam:TextureFormat=Color
 /build:Art/Actor/Boss/GiantSpirit/IdlePreview.gif
 
-#begin Art/Actor/Characters/.DS_Store
-/importer:
-/processor:
-/build:Art/Actor/Characters/.DS_Store
-
 #begin Art/Actor/Characters/AllPreview.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1241,11 +1236,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Art/Actor/Characters/AllPreview2.png
-
-#begin Art/Actor/Characters/BlueNinja/.DS_Store
-/importer:
-/processor:
-/build:Art/Actor/Characters/BlueNinja/.DS_Store
 
 #begin Art/Actor/Characters/BlueNinja/Faceset.png
 /importer:TextureImporter
@@ -2110,11 +2100,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Art/Actor/Characters/Child/SpriteSheet.png
-
-#begin Art/Actor/Characters/DarkNinja/.DS_Store
-/importer:
-/processor:
-/build:Art/Actor/Characters/DarkNinja/.DS_Store
 
 #begin Art/Actor/Characters/DarkNinja/Faceset.png
 /importer:TextureImporter
@@ -7264,11 +7249,6 @@
 /processorParam:TextureFormat=Color
 /build:Art/Backgrounds/Vehicles/Sail.png
 
-#begin Art/FX/Elemental/.DS_Store
-/importer:
-/processor:
-/build:Art/FX/Elemental/.DS_Store
-
 #begin Art/FX/Elemental/Flam/Preview.gif
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -8013,11 +7993,6 @@
 /processorParam:TextureFormat=Color
 /build:Art/FX/Projectile/SpriteSheetRock.png
 
-#begin Art/FX/SlashFx/.DS_Store
-/importer:
-/processor:
-/build:Art/FX/SlashFx/.DS_Store
-
 #begin Art/FX/SlashFx/CircularSlash/Preview.gif
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -8389,11 +8364,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Art/HUD/Font/font8x8.png
-
-#begin Art/HUD/Font/NormalFont.ttf
-/importer:
-/processor:
-/build:Art/HUD/Font/NormalFont.ttf
 
 #begin Art/HUD/Heart.png
 /importer:TextureImporter
