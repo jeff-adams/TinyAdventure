@@ -10,6 +10,10 @@ public class TheGame : Game
     private GraphicsDeviceManager graphics;
     private SpriteBatch spriteBatch;
     private Canvas canvas;
+    private Camera camera;
+
+    private Texture2D chicken;
+    private Player player;
 
     private const int gameWidth = 500;
     private const int gameHeight = 300;
@@ -29,11 +33,12 @@ public class TheGame : Game
 
     protected override void Initialize()
     {
-        graphics.PreferredBackBufferWidth = gameWidth;
-        graphics.PreferredBackBufferHeight = gameHeight;
+        graphics.PreferredBackBufferWidth = gameWidth * 2;
+        graphics.PreferredBackBufferHeight = gameHeight * 2;
         graphics.ApplyChanges();
         
         canvas = new Canvas(GraphicsDevice, gameWidth, gameHeight);
+        camera = new Camera(Window, canvas);
 
         base.Initialize();
     }
@@ -42,7 +47,9 @@ public class TheGame : Game
     {
         spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // TODO: use this.Content to load your game content here
+        chicken = Content.Load<Texture2D>("Art/Actor/Animals/Chicken/SpriteSheetWhite");
+        player = new Player(this);
+        camera.Follow(player.Transform);
     }
 
     protected override void Update(GameTime gameTime)
@@ -50,7 +57,8 @@ public class TheGame : Game
         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             Exit();
 
-        // TODO: Add your update logic here
+        player.Update(gameTime);
+        camera.Update(gameTime);
 
         base.Update(gameTime);
     }
@@ -58,10 +66,15 @@ public class TheGame : Game
     protected override void Draw(GameTime gameTime)
     {
         canvas.Activate();
-
-        //Draw all the game stuff
         GraphicsDevice.Clear(Color.SeaGreen);
-
+        spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, transformMatrix: camera.ViewMatrix);
+        
+        //Draw all the game stuff
+        spriteBatch.Draw(chicken, new Vector2(25, 25), new Rectangle(0, 0, 16, 16), Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
+        spriteBatch.Draw(chicken, new Vector2(200, 100), new Rectangle(0, 0, 16, 16), Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
+        player.Draw(spriteBatch);
+        
+        spriteBatch.End();
         canvas.Draw(spriteBatch);
         base.Draw(gameTime);
     }
