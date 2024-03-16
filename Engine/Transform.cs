@@ -105,11 +105,11 @@ public sealed class Transform : ITransform
     /// <summary>
     /// Moves the <see cref=" Transform"/> position to a specific world space location
     /// </summary>
-    /// <param name="position">The world space location</param>
+    /// <param name="newPosition">The world space location</param>
     /// <returns>This <see cref=" Transform"/> object for method chaining</returns>
-    public ITransform MoveTo(Vector2 position)
+    public ITransform MoveTo(Vector2 newPosition)
     {
-        this.position = Vector2.Transform(position, Matrix.Invert(WorldMatrix));
+        this.position = Vector2.Transform(newPosition, Matrix.Invert(WorldMatrix));
         UpdateMatrices();
         return this;
     }
