@@ -11,7 +11,7 @@ public class Player
     private int textureScale = 2;
     private int textureCellSize = 16;
 
-    private float speed = 1.25f;
+    private float speed = 60.0f;
     private bool isMoving = false;
 
     public ITransform Transform { get; private set; }
@@ -29,24 +29,26 @@ public class Player
         KeyboardState keyState = Keyboard.GetState();
         if (!keyState.GetPressedKeys().Any()) return;
 
+        float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
         if (keyState.IsKeyDown(Keys.Right))
         {
-            Move(Vector2.UnitX);
+            Move(Vector2.UnitX * deltaTime);
             return;
         }
         if (keyState.IsKeyDown(Keys.Left))
         {
-            Move(-Vector2.UnitX);
+            Move(-Vector2.UnitX * deltaTime);
             return;
         }
         if (keyState.IsKeyDown(Keys.Up))
         {
-            Move(-Vector2.UnitY);
+            Move(-Vector2.UnitY * deltaTime);
             return;
         }
         if (keyState.IsKeyDown(Keys.Down))
         {
-            Move(Vector2.UnitY);
+            Move(Vector2.UnitY * deltaTime);
             return;
         }
 
@@ -61,10 +63,11 @@ public class Player
     private void Move(Vector2 direction)
     {
         // Calculate new position
+        Vector2 newPosition = Transform.Position + (direction * speed);
         // Check for collisions
+        
         // Move player to new position
-        Transform.Move(direction);
+        Transform.MoveTo(newPosition);
         isMoving = true;
     }
-
 }
